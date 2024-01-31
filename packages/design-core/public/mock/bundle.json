@@ -20,8 +20,8 @@
           "npm": {
             "package": "element-plus",
             "version": "2.4.2",
-            "script": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.full.mjs",
-            "css": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.css",
+            "script": "https://unpkg.com/element-plus@2.4.2/dist/index.full.mjs",
+            "css": "https://unpkg.com/element-plus@2.4.2/dist/index.css",
             "dependencies": null,
             "exportName": "ElInput"
           },
@@ -300,8 +300,8 @@
           "npm": {
             "package": "element-plus",
             "version": "2.4.2",
-            "script": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.full.mjs",
-            "css": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.css",
+            "script": "https://unpkg.com/element-plus@2.4.2/dist/index.full.mjs",
+            "css": "https://unpkg.com/element-plus@2.4.2/dist/index.css",
             "dependencies": null,
             "exportName": "ElButton"
           },
@@ -621,8 +621,8 @@
           "npm": {
             "package": "element-plus",
             "version": "2.4.2",
-            "script": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.full.mjs",
-            "css": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.css",
+            "script": "https://unpkg.com/element-plus@2.4.2/dist/index.full.mjs",
+            "css": "https://unpkg.com/element-plus@2.4.2/dist/index.css",
             "dependencies": null,
             "exportName": "ElForm"
           },
@@ -1078,8 +1078,8 @@
           "npm": {
             "package": "element-plus",
             "version": "2.4.2",
-            "script": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.full.mjs",
-            "css": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.css",
+            "script": "https://unpkg.com/element-plus@2.4.2/dist/index.full.mjs",
+            "css": "https://unpkg.com/element-plus@2.4.2/dist/index.css",
             "dependencies": null,
             "exportName": "ElFormItem"
           },
@@ -1428,8 +1428,8 @@
           "npm": {
             "package": "element-plus",
             "version": "2.4.2",
-            "script": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.full.mjs",
-            "css": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.css",
+            "script": "https://unpkg.com/element-plus@2.4.2/dist/index.full.mjs",
+            "css": "https://unpkg.com/element-plus@2.4.2/dist/index.css",
             "dependencies": null,
             "exportName": "ElTable"
           },
@@ -2664,8 +2664,8 @@
           "npm": {
             "package": "element-plus",
             "version": "2.4.2",
-            "script": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.full.mjs",
-            "css": "https://npm.onmicrosoft.cn/element-plus@2.4.2/dist/index.css",
+            "script": "https://unpkg.com/element-plus@2.4.2/dist/index.full.mjs",
+            "css": "https://unpkg.com/element-plus@2.4.2/dist/index.css",
             "dependencies": null,
             "exportName": "ElTableColumn"
           },
@@ -7212,12 +7212,12 @@
                 },
                 "defaultValue": ""
               },
-              "onUpdate:modelValue": {
+              "before-change": {
                 "label": {
-                  "zh_CN": "双向绑定的值改变时触发"
+                  "zh_CN": "开关值变化前置处理"
                 },
                 "description": {
-                  "zh_CN": "开关的状态值改变时触发"
+                  "zh_CN": "开关值变化前置处理"
                 },
                 "type": "event",
                 "functionInfo": {
@@ -7227,13 +7227,25 @@
                       "type": "string",
                       "defaultValue": "",
                       "description": {
-                        "zh_CN": "双向绑定的开关状态值"
+                        "zh_CN": "开关值变化前置处理"
                       }
                     }
                   ],
                   "returns": {}
                 },
                 "defaultValue": ""
+              }
+            },
+            "slots": {
+              "close": {
+                "label": {
+                  "zh_CN": "关闭内容,当show-text为true时有效"
+                }
+              },
+              "open": {
+                "label": {
+                  "zh_CN": "开启内容,当show-text为true时有效"
+                }
               }
             }
           },
@@ -7616,6 +7628,65 @@
                     }
                   },
                   {
+                    "property": "label",
+                    "label": {
+                      "text": {
+                        "zh_CN": "选中状态的值（只有在checkbox-group中或者绑定对象的类型为array时有效）"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "name",
+                    "label": {
+                      "text": {
+                        "zh_CN": "原生name属性"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "indeterminate",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置indeterminate状态,只负责样式控制"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    }
+                  },
+                  {
                     "property": "checked",
                     "label": {
                       "text": {
@@ -7632,6 +7703,26 @@
                     },
                     "description": {
                       "zh_CN": "当前是否勾选"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "border",
+                    "label": {
+                      "text": {
+                        "zh_CN": "是否显示边框"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
                     },
                     "labelPosition": "left"
                   },
@@ -7654,76 +7745,43 @@
                       "zh_CN": "复选框的文本"
                     },
                     "labelPosition": "left"
+                  },
+                  {
+                    "property": "size",
+                    "label": {
+                      "text": {
+                        "zh_CN": "checkbox尺寸，仅在border为真时候有效"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSelect",
+                      "props": {
+                        "options": [
+                          {
+                            "label": "medium",
+                            "value": "medium"
+                          },
+                          {
+                            "label": "small",
+                            "value": "small"
+                          },
+                          {
+                            "label": "mini",
+                            "value": "mini"
+                          }
+                        ]
+                      }
+                    },
+                    "description": {
+                      "zh_CN": "checkbox组件类型（button/checkbox），该属性的默认值为 checkbox,配合 options 属性一起使用"
+                    },
+                    "labelPosition": "left"
                   }
                 ]
-              },
-              {
-                "name": "1",
-                "label": {
-                  "zh_CN": "其他"
-                },
-                "content": [
-                  {
-                    "property": "border",
-                    "label": {
-                      "text": {
-                        "zh_CN": "边框"
-                      }
-                    },
-                    "required": true,
-                    "readOnly": false,
-                    "disabled": false,
-                    "cols": 12,
-                    "widget": {
-                      "component": "MetaSwitch",
-                      "props": {}
-                    },
-                    "description": {
-                      "zh_CN": "是否显示边框"
-                    }
-                  },
-                  {
-                    "property": "false-label",
-                    "label": {
-                      "text": {
-                        "zh_CN": "未选中的值"
-                      }
-                    },
-                    "required": true,
-                    "readOnly": false,
-                    "disabled": false,
-                    "cols": 12,
-                    "widget": {
-                      "component": "MetaInput",
-                      "props": {}
-                    },
-                    "description": {
-                      "zh_CN": "没有选中时的值"
-                    }
-                  },
-                  {
-                    "property": "true-label",
-                    "label": {
-                      "text": {
-                        "zh_CN": "选择时的值"
-                      }
-                    },
-                    "required": true,
-                    "readOnly": false,
-                    "disabled": false,
-                    "cols": 12,
-                    "widget": {
-                      "component": "MetaInput",
-                      "props": {}
-                    },
-                    "description": {
-                      "zh_CN": "选中时的值"
-                    }
-                  }
-                ],
-                "description": {
-                  "zh_CN": ""
-                }
               }
             ],
             "events": {
@@ -7749,29 +7807,18 @@
                   "returns": {}
                 },
                 "defaultValue": ""
-              },
-              "onUpdate:modelValue": {
+              }
+            },
+            "slots": {
+              "default": {
                 "label": {
-                  "zh_CN": "双向绑定的值改变时触发"
-                },
-                "description": {
-                  "zh_CN": "当前选中的值改变时触发"
-                },
-                "type": "event",
-                "functionInfo": {
-                  "params": [
-                    {
-                      "name": "value",
-                      "type": "string",
-                      "defaultValue": "",
-                      "description": {
-                        "zh_CN": "双向绑定的当前选中值"
-                      }
-                    }
-                  ],
-                  "returns": {}
-                },
-                "defaultValue": ""
+                  "zh_CN": "checkbox的内容"
+                }
+              },
+              "open": {
+                "label": {
+                  "zh_CN": "开启内容,当show-text为true时有效"
+                }
               }
             }
           },
@@ -7895,6 +7942,82 @@
                     "labelPosition": "left"
                   },
                   {
+                    "property": "false-label",
+                    "label": {
+                      "text": {
+                        "zh_CN": "没有选中时的值"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    }
+                  },
+                  {
+                    "property": "label",
+                    "label": {
+                      "text": {
+                        "zh_CN": "选中状态的值（只有在check-group中或者绑定对象类型为array时有效）"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    }
+                  },
+                  {
+                    "property": "true-label",
+                    "label": {
+                      "text": {
+                        "zh_CN": "选中时的值"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    }
+                  },
+                  {
+                    "property": "name",
+                    "label": {
+                      "text": {
+                        "zh_CN": "原生name属性"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    }
+                  },
+                  {
                     "property": "text",
                     "label": {
                       "text": {
@@ -7917,52 +8040,11 @@
                 ]
               }
             ],
-            "events": {
-              "onChange": {
+            "slots": {
+              "default": {
                 "label": {
-                  "zh_CN": "勾选值改变后将触发"
-                },
-                "description": {
-                  "zh_CN": "勾选值改变后将触发"
-                },
-                "type": "event",
-                "functionInfo": {
-                  "params": [
-                    {
-                      "name": "value",
-                      "type": "string",
-                      "defaultValue": "",
-                      "description": {
-                        "zh_CN": "选中项的值"
-                      }
-                    }
-                  ],
-                  "returns": {}
-                },
-                "defaultValue": ""
-              },
-              "onUpdate:modelValue": {
-                "label": {
-                  "zh_CN": "双向绑定的值改变时触发"
-                },
-                "description": {
-                  "zh_CN": "当前选中的值改变时触发"
-                },
-                "type": "event",
-                "functionInfo": {
-                  "params": [
-                    {
-                      "name": "value",
-                      "type": "array",
-                      "defaultValue": "",
-                      "description": {
-                        "zh_CN": "双向绑定的当前选中值"
-                      }
-                    }
-                  ],
-                  "returns": {}
-                },
-                "defaultValue": ""
+                  "zh_CN": "checkbox-button的内容"
+                }
               }
             }
           },
@@ -8049,6 +8131,101 @@
                     "labelPosition": "left"
                   },
                   {
+                    "property": "fill",
+                    "label": {
+                      "text": {
+                        "zh_CN": "按钮形式的checkbox激活时的填充色和边框色"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "max",
+                    "label": {
+                      "text": {
+                        "zh_CN": "可被勾选的checkbox的最大数量"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "min",
+                    "label": {
+                      "text": {
+                        "zh_CN": "可被勾选的checkbox的最小数量"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "size",
+                    "label": {
+                      "text": {
+                        "zh_CN": "多选框尺寸，仅对按钮形式的checkbox或带有边框的checkbox生效"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSelect",
+                      "props": {
+                        "options": [
+                          {
+                            "label": "medium",
+                            "value": "medium"
+                          },
+                          {
+                            "label": "small",
+                            "value": "small"
+                          },
+                          {
+                            "label": "mini",
+                            "value": "mini"
+                          }
+                        ]
+                      }
+                    },
+                    "description": {
+                      "zh_CN": "checkbox组件类型（button/checkbox），该属性的默认值为 checkbox,配合 options 属性一起使用"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
                     "property": "disabled",
                     "label": {
                       "text": {
@@ -8066,6 +8243,45 @@
                     "description": {
                       "zh_CN": ""
                     }
+                  },
+                  {
+                    "property": "vertical",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置组件排列方式，设置复选框是否垂直排列"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    }
+                  },
+                  {
+                    "property": "text-color",
+                    "label": {
+                      "text": {
+                        "zh_CN": "按钮形式的checkbox激活时的文本颜色"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    },
+                    "labelPosition": "left"
                   },
                   {
                     "property": "options",
@@ -8151,29 +8367,13 @@
                   "returns": {}
                 },
                 "defaultValue": ""
-              },
-              "onUpdate:modelValue": {
+              }
+            },
+            "slots": {
+              "default": {
                 "label": {
-                  "zh_CN": "双向绑定的值改变时触发"
-                },
-                "description": {
-                  "zh_CN": "当前选中的值改变时触发"
-                },
-                "type": "event",
-                "functionInfo": {
-                  "params": [
-                    {
-                      "name": "value",
-                      "type": "array",
-                      "defaultValue": "",
-                      "description": {
-                        "zh_CN": "双向绑定的当前选中值"
-                      }
-                    }
-                  ],
-                  "returns": {}
-                },
-                "defaultValue": ""
+                  "zh_CN": "checkbox-group选项组"
+                }
               }
             }
           },
@@ -8337,6 +8537,225 @@
                     "labelPosition": "left"
                   },
                   {
+                    "property": "close-on-click-modal",
+                    "label": {
+                      "text": {
+                        "zh_CN": "是否可以通过点击遮罩层关闭弹窗"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否可以通过点击遮罩层关闭弹窗"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "close-on-press-escape",
+                    "label": {
+                      "text": {
+                        "zh_CN": "是否可以通过ESC键关闭遮罩层"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否可以通过ESC键关闭遮罩层"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "destroy-on-close",
+                    "label": {
+                      "text": {
+                        "zh_CN": "关闭时销毁对话框内元素，而非隐藏"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "关闭时销毁对话框内元素，而非隐藏"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "fullscreen",
+                    "label": {
+                      "text": {
+                        "zh_CN": "全屏"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "弹出框是否全屏"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "is-form-reset",
+                    "label": {
+                      "text": {
+                        "zh_CN": "关闭弹窗重置表单数据"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "关闭弹窗，默认重置表单数据"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "lock-scroll",
+                    "label": {
+                      "text": {
+                        "zh_CN": "滚动条"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "Dialog弹出时是否禁用滚动条"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "modal",
+                    "label": {
+                      "text": {
+                        "zh_CN": "遮罩层"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否启用遮罩层"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "modal-append-to-body",
+                    "label": {
+                      "text": {
+                        "zh_CN": "遮罩层是否应用到body"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "遮罩层是否应用到body上，为false时遮罩层为应用到DialogBox的父元素上"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "right-slide",
+                    "label": {
+                      "text": {
+                        "zh_CN": "右侧滑出功能"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否开启弹出右侧滑出功能，默认值为false"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-header",
+                    "label": {
+                      "text": {
+                        "zh_CN": "显示头部header"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否显示头部header，默认值为true 。"
+                    }
+                  },
+                  {
+                    "property": "top",
+                    "label": {
+                      "text": {
+                        "zh_CN": "弹出框到窗口顶部的高度"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置弹出框距离窗口顶部的高度，默认为屏高的15%"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
                     "property": "dialog-class",
                     "label": {
                       "text": {
@@ -8414,22 +8833,110 @@
                 },
                 "defaultValue": ""
               },
-              "onUpdate:visible": {
+              "onClosed": {
                 "label": {
-                  "zh_CN": "双向绑定的状态改变时触发"
+                  "zh_CN": "关闭动画结束时触发"
                 },
                 "description": {
-                  "zh_CN": "显示或隐藏的状态值，发生改变时触发"
+                  "zh_CN": "Dialog 关闭动画结束时的回调"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "onOpen": {
+                "label": {
+                  "zh_CN": "打开弹窗时触发"
+                },
+                "description": {
+                  "zh_CN": "Dialog 打开时回调"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "onOpened": {
+                "label": {
+                  "zh_CN": "打开动画结束时触发"
+                },
+                "description": {
+                  "zh_CN": "Dialog 打开动画结束时回调"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "onDrag-move": {
+                "label": {
+                  "zh_CN": "弹框移动时触发"
+                },
+                "description": {
+                  "zh_CN": "Dialog 拖拽移动事件"
                 },
                 "type": "event",
                 "functionInfo": {
                   "params": [
                     {
-                      "name": "value",
-                      "type": "boolean",
+                      "name": "arg",
+                      "type": "Object",
                       "defaultValue": "",
                       "description": {
-                        "zh_CN": "双向绑定的显示或隐藏的状态值"
+                        "zh_CN": "event(包含弹框的位置等信息)"
+                      }
+                    }
+                  ],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "onDrag-start": {
+                "label": {
+                  "zh_CN": "弹框拖拽开始时触发"
+                },
+                "description": {
+                  "zh_CN": "Dialog 拖拽开始事件"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [
+                    {
+                      "name": "arg",
+                      "type": "Object",
+                      "defaultValue": "",
+                      "description": {
+                        "zh_CN": "event(包含弹框的位置等信息)"
+                      }
+                    }
+                  ],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "onDrag-end": {
+                "label": {
+                  "zh_CN": "弹框拖拽结束时触发"
+                },
+                "description": {
+                  "zh_CN": "Dialog 拖拽结束事件"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [
+                    {
+                      "name": "arg",
+                      "type": "Object",
+                      "defaultValue": "",
+                      "description": {
+                        "zh_CN": "event(包含弹框的位置等信息)"
                       }
                     }
                   ],
@@ -8445,6 +8952,14 @@
                 },
                 "description": {
                   "zh_CN": "Dialog 标题区的内容"
+                }
+              },
+              "default": {
+                "label": {
+                  "zh_CN": "内容区"
+                },
+                "description": {
+                  "zh_CN": "Dialog 的内容"
                 }
               },
               "footer": {
@@ -8518,48 +9033,6 @@
                 },
                 "content": [
                   {
-                    "property": "showEditIcon",
-                    "label": {
-                      "text": {
-                        "zh_CN": "显示编辑ICON "
-                      }
-                    },
-                    "required": true,
-                    "readOnly": false,
-                    "disabled": false,
-                    "cols": 12,
-                    "widget": {
-                      "component": "MetaSwitch",
-                      "props": {}
-                    },
-                    "description": {
-                      "zh_CN": "是否显示标题后编辑 ICON"
-                    },
-                    "labelPosition": "left"
-                  },
-                  {
-                    "property": "tabs",
-                    "label": {
-                      "text": {
-                        "zh_CN": "选项卡"
-                      }
-                    },
-                    "required": true,
-                    "readOnly": false,
-                    "disabled": false,
-                    "defaultValue": "",
-                    "cols": 12,
-                    "bindState": false,
-                    "widget": {
-                      "component": "MetaContainer",
-                      "props": {}
-                    },
-                    "description": {
-                      "zh_CN": "tabs"
-                    },
-                    "labelPosition": "none"
-                  },
-                  {
                     "property": "modelValue",
                     "label": {
                       "text": {
@@ -8576,6 +9049,173 @@
                     },
                     "description": {
                       "zh_CN": "绑定值，选中选项卡的 name"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "active-name",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置初始选中的页签项"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置初始选中的页签项"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "drop-config",
+                    "label": {
+                      "text": {
+                        "zh_CN": "页签拖拽功能"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "启用页签拖拽功能，配置第三方排序插件，对页签进行重新排序;需注意：不是通过v-for渲染的tab-item，在拖拽排序后，无法在tab-drag-end事件中对其顺序进行保护"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "editable",
+                    "label": {
+                      "text ": {
+                        "zh_CN": "显示添加和删除按钮"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否同时显示添加和删除按钮，于edit事件搭配使用"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "separator",
+                    "label": {
+                      "text ": {
+                        "zh_CN": "设置分隔符"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置分隔符样式"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-more-tabs",
+                    "label": {
+                      "text ": {
+                        "zh_CN": "设置当页签栏超过一定宽度时是否显示'更多'按钮"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置当页签栏超过一定宽度时是否显示'更多'按钮，若为true，则当鼠标悬停到按钮上时，将出现下拉框展示超过宽度的页签项"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "size",
+                    "label": {
+                      "text ": {
+                        "zh_CN": "设置页签尺寸"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSelect",
+                      "props": {
+                        "options": [
+                          {
+                            "label": "small",
+                            "value": "small"
+                          }
+                        ]
+                      }
+                    },
+                    "description": {
+                      "zh_CN": "设置页签尺寸，当与tab-style为card或者border-card时生效，该属性可选值为small"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "popper-class",
+                    "label": {
+                      "text": {
+                        "zh_CN": "为'更多'下拉页签框添加类名"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "为'更多'下拉页签框添加类名，可用于自定义下拉选项的样式"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "stretch",
+                    "label": {
+                      "text": {
+                        "zh_CN": "页签项的宽度"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "页签项的宽度是否自动撑开"
                     },
                     "labelPosition": "left"
                   },
@@ -8738,6 +9378,107 @@
                   "returns": {}
                 },
                 "defaultValue": ""
+              },
+              "onAdd": {
+                "label": {
+                  "zh_CN": "点击'添加'按钮后触发"
+                },
+                "description": {
+                  "zh_CN": "点击'添加'按钮后触发，用于编写增加页签项的逻辑"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "onTab-drag-end": {
+                "label": {
+                  "zh_CN": "页签拖动结束后触发"
+                },
+                "description": {
+                  "zh_CN": "页签拖动结束后触发"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [
+                    {
+                      "name": "DragEvent",
+                      "type": "Object",
+                      "defaultValue": "",
+                      "description": {
+                        "zh_CN": "页签拖动"
+                      }
+                    }
+                  ],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "onTab-drag-start": {
+                "label": {
+                  "zh_CN": "页签拖动开始时后触发"
+                },
+                "description": {
+                  "zh_CN": "页签拖动开始时后触发"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [
+                    {
+                      "name": "DragEvent",
+                      "type": "Object",
+                      "defaultValue": "",
+                      "description": {
+                        "zh_CN": "页签拖动"
+                      }
+                    }
+                  ],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "onTab-drag-over": {
+                "label": {
+                  "zh_CN": "页签拖动结束中触发"
+                },
+                "description": {
+                  "zh_CN": "页签拖动结束中触发"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [
+                    {
+                      "name": "DragEvent",
+                      "type": "Object",
+                      "defaultValue": "",
+                      "description": {
+                        "zh_CN": "页签拖动"
+                      }
+                    }
+                  ],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              }
+            },
+            "slots": {
+              "moreIcon": {
+                "label": {
+                  "zh_CN": "按钮插槽"
+                },
+                "description": {
+                  "zh_CN": "更多按钮插槽"
+                }
+              },
+              "title": {
+                "label": {
+                  "zh_CN": "页签项标题"
+                },
+                "description": {
+                  "zh_CN": "页签项标题插槽"
+                }
               }
             }
           },
@@ -8780,7 +9521,7 @@
           "devMode": "proCode",
           "npm": {
             "package": "@opentiny/vue",
-            "exportName": "TabItem",
+            "exportName": "TinyTabItem",
             "version": "",
             "destructuring": true
           },
@@ -9029,7 +9770,7 @@
           "devMode": "proCode",
           "npm": {
             "package": "@opentiny/vue",
-            "exportName": "BreadcrumbItem",
+            "exportName": "TinyBreadcrumbItem",
             "version": "",
             "destructuring": true
           },
@@ -9163,6 +9904,46 @@
                       "zh_CN": "双向绑定当前激活的面板"
                     },
                     "labelPosition": "left"
+                  },
+                  {
+                    "property": "accordion",
+                    "label": {
+                      "text": {
+                        "zh_CN": "手风琴模式"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否手风琴模式"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "before-close",
+                    "label": {
+                      "text": {
+                        "zh_CN": "折叠面板切换"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "阻止折叠面板切换"
+                    },
+                    "labelPosition": "left"
                   }
                 ]
               }
@@ -9190,29 +9971,16 @@
                   "returns": {}
                 },
                 "defaultValue": ""
-              },
-              "onUpdate:modelValue": {
+              }
+            },
+            "slots": {
+              "default": {
                 "label": {
-                  "zh_CN": "双向绑定的值改变时触发"
+                  "zh_CN": "默认插槽"
                 },
                 "description": {
-                  "zh_CN": "当前激活面板的值改变时触发"
-                },
-                "type": "event",
-                "functionInfo": {
-                  "params": [
-                    {
-                      "name": "value",
-                      "type": "string",
-                      "defaultValue": "",
-                      "description": {
-                        "zh_CN": "双向绑定的值"
-                      }
-                    }
-                  ],
-                  "returns": {}
-                },
-                "defaultValue": ""
+                  "zh_CN": "默认插槽"
+                }
               }
             }
           },
@@ -9315,18 +10083,82 @@
                       "zh_CN": "面板标题"
                     },
                     "labelPosition": "left"
+                  },
+                  {
+                    "property": "title-right",
+                    "label": {
+                      "text": {
+                        "zh_CN": "面板标题右侧内容"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "自定义面板标题右侧内容"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "disabled",
+                    "label": {
+                      "text": {
+                        "zh_CN": "是否禁用"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否禁用"
+                    },
+                    "labelPosition": "left"
                   }
                 ]
               }
             ],
             "events": {},
             "slots": {
+              "default": {
+                "label": {
+                  "zh_CN": "默认插槽"
+                },
+                "description": {
+                  "zh_CN": "默认插槽"
+                }
+              },
+              "icon": {
+                "label": {
+                  "zh_CN": "icon图标"
+                },
+                "description": {
+                  "zh_CN": "展开折叠icon图标"
+                }
+              },
               "title": {
                 "label": {
                   "zh_CN": "标题"
                 },
                 "description": {
-                  "zh_CN": "自定义标题"
+                  "zh_CN": "标题"
+                }
+              },
+              "title-right": {
+                "label": {
+                  "zh_CN": "面板标题右侧内容"
+                },
+                "description": {
+                  "zh_CN": "自定义面板标题右侧内容"
                 }
               }
             }
@@ -9412,6 +10244,491 @@
                     "description": {
                       "zh_CN": "设置表格的数据"
                     }
+                  },
+                  {
+                    "property": "align",
+                    "label": {
+                      "text": {
+                        "zh_CN": "对齐位置"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSelect",
+                      "props": {
+                        "options": [
+                          {
+                            "label": "left",
+                            "value": "left"
+                          },
+                          {
+                            "label": "center",
+                            "value": "center"
+                          },
+                          {
+                            "label": "right",
+                            "value": "right"
+                          }
+                        ]
+                      }
+                    },
+                    "description": {
+                      "zh_CN": "所有的对齐方式，该属性的可选值为left(左对齐),center(居中对齐),right(右对齐)"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "auto-load",
+                    "label": {
+                      "text": {
+                        "zh_CN": "自动请求服务"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否开启自动请求服务，配置fetch-data时有效"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "auto-resize",
+                    "label": {
+                      "text": {
+                        "zh_CN": "父元素响应式监听"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "父元素响应式监听(对于父元素可能存在动态变化的场景可能会用到)"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "border",
+                    "label": {
+                      "text": {
+                        "zh_CN": "纵向边框"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否带有纵向边框"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "column-key",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置key属性"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否需要为每一列的VNode设置key属性(非特殊情况下不需要使用)"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "column-min-width",
+                    "label": {
+                      "text": {
+                        "zh_CN": "最小宽度"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置可以调整的最小宽度，不设置时默认为列头span的宽度+36（头部固定宽度），所有最小列宽度；会自动将剩余空间按比例分配；该属性的可选值为整数、px、%"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "column-width",
+                    "label": {
+                      "text": {
+                        "zh_CN": "所有列宽度"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "所有列宽度；该属性可选值为整数、px、%"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "cell-class-name",
+                    "label": {
+                      "text": {
+                        "zh_CN": "给单元格附加className，也可以时函数"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "给单元格附加className，也可以时函数"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "context-menu",
+                    "label": {
+                      "text": {
+                        "zh_CN": "表格列的配置信息"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "properties": [
+                      {
+                        "label": {
+                          "zh_CN": "默认分组"
+                        },
+                        "content": [
+                          {
+                            "property": "title",
+                            "type": "string",
+                            "defaultValue": "",
+                            "label": {
+                              "text": {
+                                "zh_CN": "列标题"
+                              }
+                            },
+                            "widget": {
+                              "component": "MetaBindI18n",
+                              "props": {}
+                            }
+                          },
+                          {
+                            "property": "field",
+                            "type": "string",
+                            "defaultValue": "",
+                            "label": {
+                              "text": {
+                                "zh_CN": "列键值"
+                              }
+                            },
+                            "widget": {
+                              "component": "MetaInput",
+                              "props": {}
+                            }
+                          },
+                          {
+                            "property": "sortable",
+                            "type": "boolean",
+                            "defaultValue": true,
+                            "label": {
+                              "text": {
+                                "zh_CN": "是否排序"
+                              }
+                            },
+                            "widget": {
+                              "component": "MetaSwitch",
+                              "props": {}
+                            }
+                          },
+                          {
+                            "property": "width",
+                            "type": "string",
+                            "defaultValue": "",
+                            "label": {
+                              "text": {
+                                "zh_CN": "列宽"
+                              }
+                            },
+                            "widget": {
+                              "component": "MetaNumber",
+                              "props": {}
+                            }
+                          },
+                          {
+                            "property": "formatText",
+                            "type": "string",
+                            "defaultValue": "",
+                            "label": {
+                              "text": {
+                                "zh_CN": "内置渲染器"
+                              }
+                            },
+                            "widget": {
+                              "component": "MetaSelect",
+                              "props": {
+                                "options": [
+                                  {
+                                    "label": "整数",
+                                    "value": "integer"
+                                  },
+                                  {
+                                    "label": "小数",
+                                    "value": "number"
+                                  },
+                                  {
+                                    "label": "金额",
+                                    "value": "money"
+                                  },
+                                  {
+                                    "label": "百分比",
+                                    "value": "rate"
+                                  },
+                                  {
+                                    "label": "布尔",
+                                    "value": "boole"
+                                  },
+                                  {
+                                    "label": "年月日",
+                                    "value": "date"
+                                  },
+                                  {
+                                    "label": "年月日时分",
+                                    "value": "dateTime"
+                                  },
+                                  {
+                                    "label": "时间",
+                                    "value": "time"
+                                  },
+                                  {
+                                    "label": "省略",
+                                    "value": "ellipsis"
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          {
+                            "property": "renderer",
+                            "type": "object",
+                            "defaultValue": "",
+                            "label": {
+                              "text": {
+                                "zh_CN": "渲染函数"
+                              }
+                            },
+                            "widget": {
+                              "component": "MetaCodeEditor",
+                              "props": {
+                                "dataType": "JSFunction"
+                              }
+                            }
+                          },
+                          {
+                            "property": "slots",
+                            "type": "object",
+                            "defaultValue": "",
+                            "label": {
+                              "text": {
+                                "zh_CN": "插槽"
+                              }
+                            },
+                            "labelPosition": "none",
+                            "widget": {
+                              "component": "MetaJsSlot",
+                              "props": {
+                                "slots": ["header", "default"]
+                              }
+                            }
+                          },
+                          {
+                            "property": "type",
+                            "label": {
+                              "text": {
+                                "zh_CN": "列类型"
+                              }
+                            },
+                            "required": false,
+                            "readOnly": false,
+                            "disabled": false,
+                            "cols": 12,
+                            "widget": {
+                              "component": "MetaSelect",
+                              "props": {
+                                "options": [
+                                  {
+                                    "label": "索引列",
+                                    "value": "index"
+                                  },
+                                  {
+                                    "label": "单选列",
+                                    "value": "radio"
+                                  },
+                                  {
+                                    "label": "多选列",
+                                    "value": "selection"
+                                  },
+                                  {
+                                    "label": "展开列",
+                                    "value": "expand"
+                                  }
+                                ],
+                                "clearable": true
+                              }
+                            },
+                            "description": {
+                              "zh_CN": "设置内置列的类型，该属性的可选值为 index（序号）/ selection（复选框）/ radio（单选框）/ expand（展开行）"
+                            },
+                            "labelPosition": "left"
+                          },
+                          {
+                            "property": "editor",
+                            "label": {
+                              "text": {
+                                "zh_CN": "编辑配置"
+                              }
+                            },
+                            "required": true,
+                            "readOnly": false,
+                            "disabled": false,
+                            "cols": 12,
+                            "widget": {
+                              "component": "MetaCodeEditor",
+                              "props": {
+                                "language": "json"
+                              }
+                            },
+                            "description": {
+                              "zh_CN": "单元格编辑渲染配置项，也可以是函数 Function(h, params)"
+                            },
+                            "labelPosition": "left"
+                          },
+                          {
+                            "property": "filter",
+                            "label": {
+                              "text": {
+                                "zh_CN": "筛选配置"
+                              }
+                            },
+                            "required": false,
+                            "readOnly": false,
+                            "disabled": false,
+                            "cols": 12,
+                            "widget": {
+                              "component": "MetaCodeEditor",
+                              "props": {
+                                "language": "json"
+                              }
+                            },
+                            "description": {
+                              "zh_CN": "设置表格列的筛选配置信息。默认值为 false 不配置筛选信息"
+                            }
+                          },
+                          {
+                            "property": "showOverflow",
+                            "label": {
+                              "text": {
+                                "zh_CN": "内容超出部分省略号配置"
+                              }
+                            },
+                            "required": true,
+                            "readOnly": false,
+                            "disabled": false,
+                            "cols": 12,
+                            "widget": {
+                              "component": "MetaSelect",
+                              "props": {
+                                "options": [
+                                  {
+                                    "label": "只显示省略号",
+                                    "value": "ellipsis"
+                                  },
+                                  {
+                                    "label": "显示为原生 title",
+                                    "value": "title"
+                                  },
+                                  {
+                                    "label": "显示为 tooltip 提示",
+                                    "value": "tooltip"
+                                  }
+                                ],
+                                "clearable": true
+                              }
+                            },
+                            "description": {
+                              "zh_CN": "设置内置列的内容超出部分显示省略号配置，该属性的可选值为 ellipsis（只显示省略号）/ title（显示为原生 title）/ tooltip（显示为 tooltip 提示）"
+                            },
+                            "labelPosition": "left"
+                          }
+                        ]
+                      }
+                    ],
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "表格列的配置信息，具体参考列配置项"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "context-menu",
+                    "label": {
+                      "text": {
+                        "zh_CN": "表格列的配置信息"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "表格列的配置信息，具体参考列配置项"
+                    },
+                    "labelPosition": "left"
                   },
                   {
                     "property": "columns",
@@ -10755,6 +12072,511 @@
                     "description": {
                       "zh_CN": "当 popseletor 为 grid 时才能生效，配置为 true 后还需配置 pagerOp 属性"
                     }
+                  },
+                  {
+                    "property": "auto-lookup",
+                    "label": {
+                      "text": {
+                        "zh_CN": "是否自动请求数据"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    }
+                  },
+                  {
+                    "property": "auto-reset",
+                    "label": {
+                      "text": {
+                        "zh_CN": "筛选后点击关闭是否自动重置筛选条件"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    }
+                  },
+                  {
+                    "property": "dialog-class",
+                    "label": {
+                      "text": {
+                        "zh_CN": "自定义配置弹窗类名"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": ""
+                    }
+                  },
+                  {
+                    "property": "draggable",
+                    "label": {
+                      "text": {
+                        "zh_CN": "弹出窗口拖动"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置弹出窗口是否可以拖动"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "icon",
+                    "label": {
+                      "text": {
+                        "zh_CN": "自定义选择框尾部图标"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "自定义选择框尾部图标"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "multi",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置弹出面板中的数据是否可以多选"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置弹出面板中的数据是否可以多选"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "popseletor",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置弹出面板中可显示的树或者表格组件"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置弹出面板中可显示的树或者表格组件"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "readonly",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置只读"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置弹出面板中可显示的树或者表格组件"
+                    }
+                  },
+                  {
+                    "property": "remote-search",
+                    "label": {
+                      "text": {
+                        "zh_CN": "配置远程搜索"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "配置远程搜索"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "resize",
+                    "label": {
+                      "text": {
+                        "zh_CN": "显示弹框全屏按钮"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否显示弹框全屏按钮"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-clear-btn",
+                    "label": {
+                      "text": {
+                        "zh_CN": "显示清除按钮"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置输入框中右侧是否显示清除按钮"
+                    }
+                  },
+                  {
+                    "property": "show-history",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置历史记录标签页是否显示表格"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "当弹出面板配置的是表格时，设置历史记录标签页是否显示表格"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-pager",
+                    "label": {
+                      "text": {
+                        "zh_CN": "展示分页"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "展示分页"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-selected-box",
+                    "label": {
+                      "text": {
+                        "zh_CN": "将已选表格显示为已选栏"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "展示分页"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "size",
+                    "label": {
+                      "text": {
+                        "zh_CN": "将已选表格显示为已选栏"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSelect",
+                      "props": {
+                        "options": [
+                          {
+                            "label": "medium",
+                            "value": "medium"
+                          },
+                          {
+                            "label": "small",
+                            "value": "small"
+                          },
+                          {
+                            "label": "mini",
+                            "value": "mini"
+                          }
+                        ]
+                      }
+                    },
+                    "description": {
+                      "zh_CN": "展示分页"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "suggest",
+                    "label": {
+                      "text": {
+                        "zh_CN": "配置suggest开启联想功能"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "配置suggest开启联想功能，输入框输入后自动触发联想查询，该功能需要联合remote-search使用"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "tabindex",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置通过tab键获焦及获焦顺序（readonly属性设置为false时有效）"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置通过tab键获焦及获焦顺序（readonly属性设置为false时有效）"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "text-field",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置输入框中显示文本的字段，提交数据时，不提交该显示文本"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置输入框中显示文本的字段，提交数据时，不提交该显示文本"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "text-split",
+                    "label": {
+                      "text": {
+                        "zh_CN": "在多选的情况下，设置输入框中要显示多个数据时的分隔符"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "在多选的情况下，设置输入框中要显示多个数据时的分隔符"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "title",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置弹出面板的标题，并且支持国际化"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置弹出面板的标题，并且支持国际化"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "tigger",
+                    "label": {
+                      "text": {
+                        "zh_CN": "弹框表格中为单选时radio的选中配置，可配置：default（默认），cell（点击单元格触发），row（点击行触发）"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSelect",
+                      "props": {
+                        "options": [
+                          {
+                            "label": "default",
+                            "value": "default"
+                          },
+                          {
+                            "label": "cell",
+                            "value": "cell"
+                          },
+                          {
+                            "label": "row",
+                            "value": "row"
+                          }
+                        ]
+                      }
+                    },
+                    "description": {
+                      "zh_CN": "弹框表格中为单选时radio的选中配置，可配置：default（默认），cell（点击单元格触发），row（点击行触发）"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "value-filed",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置输入框要提交数据的字段"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置输入框要提交数据的字段"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "value-split",
+                    "label": {
+                      "text": {
+                        "zh_CN": "在多选情况下，设置输入框要提交多个数据时的分隔符"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "在多选情况下，设置输入框要提交多个数据时的分隔符"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "width",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置弹出面板的宽度（单位像素），当组件的muiti = true时,宽度最小为900px,否则宽度最小为600px"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "在多选情况下，设置输入框要提交多个数据时的分隔符"
+                    },
+                    "labelPosition": "left"
                   }
                 ],
                 "description": {
@@ -10831,6 +12653,20 @@
                 },
                 "defaultValue": ""
               },
+              "onPopup": {
+                "label": {
+                  "zh_CN": "弹框打开时触发的事件"
+                },
+                "description": {
+                  "zh_CN": "弹框打开时触发的事件"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
               "onPageChange": {
                 "label": {
                   "zh_CN": "分页切换事件"
@@ -10853,6 +12689,24 @@
                   "returns": {}
                 },
                 "defaultValue": ""
+              }
+            },
+            "slots": {
+              "footer": {
+                "label": {
+                  "zh_CN": "底部区域插槽"
+                },
+                "description": {
+                  "zh_CN": "底部区域插槽"
+                }
+              },
+              "search": {
+                "label": {
+                  "zh_CN": "查询条件插槽"
+                },
+                "description": {
+                  "zh_CN": "查询条件插槽"
+                }
               }
             }
           },
@@ -10910,7 +12764,7 @@
                   "zh_CN": "基础信息"
                 },
                 "collapse": {
-                  "number": 10,
+                  "number": 6,
                   "text": {
                     "zh_CN": "显示更多"
                   }
@@ -10986,28 +12840,6 @@
                     "labelPosition": "left"
                   },
                   {
-                    "property": "render-content",
-                    "label": {
-                      "text": {
-                        "zh_CN": "渲染函数"
-                      }
-                    },
-                    "required": false,
-                    "readOnly": false,
-                    "disabled": false,
-                    "cols": 12,
-                    "widget": {
-                      "component": "MetaInput",
-                      "props": {
-                        "disabled": true,
-                        "placeholder": "请使用变量绑定来绑定函数"
-                      }
-                    },
-                    "description": {
-                      "zh_CN": "树节点的内容区的渲染函数"
-                    }
-                  },
-                  {
                     "property": "icon-trigger-click-node",
                     "label": {
                       "text": {
@@ -11066,6 +12898,35 @@
                       "zh_CN": "节点收缩的图标"
                     },
                     "labelPosition": "left"
+                  },
+                  {
+                    "property": "props",
+                    "label": {
+                      "text": {
+                        "zh_CN": "映射字段"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": [
+                      {
+                        "label": "一级 1",
+                        "children": [
+                          {
+                            "label": "二级 1-1"
+                          }
+                        ]
+                      }
+                    ],
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "可配置静态数据源和动态数据源"
+                    }
                   }
                 ]
               },
@@ -11112,6 +12973,566 @@
                     },
                     "description": {
                       "zh_CN": "节点筛选函数"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "accordion",
+                    "label": {
+                      "text": {
+                        "zh_CN": "手风琴效果"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否设置为手风琴效果（只能展开同一个级别的节点）"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "check-strictly",
+                    "label": {
+                      "text": {
+                        "zh_CN": "遵循父级和子级不相关联的做法"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "遵循父级和子级不相关联的做法，配合show-checkbox属性使用"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "collapsible",
+                    "label": {
+                      "text": {
+                        "zh_CN": "允许展开后的菜单收起"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "允许展开后的菜单收起，未和show-number配套使用时，仍可以点击图标收起"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "default-expand-all",
+                    "label": {
+                      "text": {
+                        "zh_CN": "默认展开所有子节点"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否默认展开所有的子节点"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "draggable",
+                    "label": {
+                      "text": {
+                        "zh_CN": "拖动节点菜单"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否可拖动节点菜单"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "ellipsis",
+                    "label": {
+                      "text": {
+                        "zh_CN": "文字超长省略显示"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否文字超长省略显示，优先级高于wrap"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "expand-on-click-node",
+                    "label": {
+                      "text": {
+                        "zh_CN": "点击节点即展开/收起"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否能点击节点即展开/收起。配置为false则只能点击下拉图标展开/收起"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "lazy",
+                    "label": {
+                      "text": {
+                        "zh_CN": "是否懒加载子节点"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否懒加载子节点，配合load属性使用"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "menu-collapsible",
+                    "label": {
+                      "text": {
+                        "zh_CN": "显示侧边折叠与展开按钮"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否显示侧边折叠与展开按钮"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "only-check-children",
+                    "label": {
+                      "text": {
+                        "zh_CN": "父级是否不可选，只能展开不能跳转"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "父级是否不可选，只能展开不能跳转"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-checkbox",
+                    "label": {
+                      "text": {
+                        "zh_CN": "节点是否可被选择"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "节点可被选择"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-expand",
+                    "label": {
+                      "text": {
+                        "zh_CN": "启用一键展开/收起功能"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否启用一键展开/收起功能。点击左下角图标可展开/收起菜单注意：配合customIcon属性使用，纯文本菜单不支持此功能"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-filter",
+                    "label": {
+                      "text": {
+                        "zh_CN": "显示搜索框"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否显示搜索框，可搜索过滤节点"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-number",
+                    "label": {
+                      "text": {
+                        "zh_CN": "右侧下拉图标区域显示未number属性定义的数字内容"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "右侧下拉图标区域是否显示未number属性定义的数字内容，建议不超过4个字符"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "wrap",
+                    "label": {
+                      "text": {
+                        "zh_CN": "换行显示"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否换行显示"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "show-title",
+                    "label": {
+                      "text": {
+                        "zh_CN": "显示节点的title提示"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否显示节点的title提示，鼠标悬浮节点之上触发"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "default-expanded-keys-highlight",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置默认展开节点中的某个节点高亮"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置默认展开节点中的某个节点高亮，配合default-expanded-keys属性使用"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "empty-text",
+                    "label": {
+                      "text": {
+                        "zh_CN": "内容为空时展示的文本"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "内容为空时展示的文本"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "indent",
+                    "label": {
+                      "text": {
+                        "zh_CN": "子级相对于父级节点的水平缩进距离，单位px"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "子级相对于父级节点的水平缩进距离，单位px"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "node-height",
+                    "label": {
+                      "text": {
+                        "zh_CN": "节点高度"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "节点高度"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "node-key",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置每个树节点唯一标识（key）的属性，在整棵树中都是唯一的"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置每个树节点唯一标识（key）的属性，在整棵树中都是唯一的"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "search-icon",
+                    "label": {
+                      "text": {
+                        "zh_CN": "自定义搜索图标"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "自定义搜索图标"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "suffix-icon",
+                    "label": {
+                      "text": {
+                        "zh_CN": "自定义后置图标"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "自定义后置图标"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "allow-drag",
+                    "label": {
+                      "text": {
+                        "zh_CN": "拖拽开始前的回调事件，定义节点是否允许拖拽的规则，返回true则允许拖拽，配合draggable属性使用"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "拖拽开始前的回调事件，定义节点是否允许拖拽的规则，返回true则允许拖拽，配合draggable属性使用"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "allow-drog",
+                    "label": {
+                      "text": {
+                        "zh_CN": "拖拽结束前的回调事件，定义节点是否允许放置到模板节点的规则，返回true则允许放置，配合graggable属性使用"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "拖拽结束前的回调事件，定义节点是否允许放置到模板节点的规则，返回true则允许放置，配合graggable属性使用"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "filter-node-method",
+                    "label": {
+                      "text": {
+                        "zh_CN": "自定义树节点过滤的方法，返回true表示这个节点可以显示，返回false则表示这个节点会被隐藏"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "自定义树节点过滤的方法，返回true表示这个节点可以显示，返回false则表示这个节点会被隐藏"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "get-menu-data-sync",
+                    "label": {
+                      "text": {
+                        "zh_CN": "自定义获取服务端数据源的方法，返回一个Promise对象"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "自定义获取服务端数据源的方法，返回一个Promise对象"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "load",
+                    "label": {
+                      "text": {
+                        "zh_CN": "加载子树数据的方法，仅当lazy属性为true时生效"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "加载子树数据的方法，仅当lazy属性为true时生效"
                     },
                     "labelPosition": "left"
                   }
@@ -11555,25 +13976,23 @@
                     }
                   },
                   {
-                    "property": "render-content",
+                    "property": "disabled",
                     "label": {
                       "text": {
-                        "zh_CN": "渲染函数"
+                        "zh_CN": "禁用"
                       }
                     },
-                    "required": false,
+                    "required": true,
                     "readOnly": false,
                     "disabled": false,
+                    "defaultValue": "提示信息",
                     "cols": 12,
                     "widget": {
-                      "component": "MetaInput",
-                      "props": {
-                        "disabled": true,
-                        "placeholder": "请使用变量绑定来绑定函数"
-                      }
+                      "component": "MetaSwitch",
+                      "props": {}
                     },
                     "description": {
-                      "zh_CN": "自定义渲染函数，返回需要渲染的节点内容"
+                      "zh_CN": "Tooltip是否禁用"
                     }
                   },
                   {
@@ -11608,8 +14027,333 @@
                     "description": {
                       "zh_CN": "手动控制模式，设置为 true 后，mouseenter 和 mouseleave 事件将不会生效"
                     }
+                  },
+                  {
+                    "property": "effect",
+                    "label": {
+                      "text": {
+                        "zh_CN": "主题"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSelect",
+                      "props": {
+                        "options": [
+                          {
+                            "label": "dark",
+                            "value": "dark"
+                          },
+                          {
+                            "label": "light",
+                            "value": "light"
+                          }
+                        ]
+                      }
+                    },
+                    "description": {
+                      "zh_CN": "提示的主题"
+                    },
+                    "labelPosition": "left"
+                  },
+                  {
+                    "property": "type",
+                    "label": {
+                      "text": {
+                        "zh_CN": "类型"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSelect",
+                      "props": {
+                        "options": [
+                          {
+                            "label": "normal",
+                            "value": "normal"
+                          },
+                          {
+                            "label": "warning",
+                            "value": "warning"
+                          },
+                          {
+                            "label": "error",
+                            "value": "error"
+                          },
+                          {
+                            "label": "info",
+                            "value": "info"
+                          },
+                          {
+                            "label": "success",
+                            "value": "success"
+                          }
+                        ]
+                      }
+                    },
+                    "description": {
+                      "zh_CN": "提示的类型，type的优先级大于effect"
+                    },
+                    "labelPosition": "left"
                   }
                 ]
+              },
+              {
+                "name": "1",
+                "label": {
+                  "zh_CN": "其他"
+                },
+                "content": [
+                  {
+                    "property": "append-to-body",
+                    "label": {
+                      "text": {
+                        "zh_CN": "是否将弹出层的元素添加到body上"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否将弹出层的元素添加到body上"
+                    }
+                  },
+                  {
+                    "property": "close-delay",
+                    "label": {
+                      "text": {
+                        "zh_CN": "延迟关闭的时长"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaNumber",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "延迟关闭的时长，单位毫秒"
+                    }
+                  },
+                  {
+                    "property": "hide-after",
+                    "label": {
+                      "text": {
+                        "zh_CN": "出现后自动隐藏的时长"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaNumber",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "出现后自动隐藏的时长，单位毫秒，为0则不会自动隐藏"
+                    }
+                  },
+                  {
+                    "property": "offset",
+                    "label": {
+                      "text": {
+                        "zh_CN": "弹出层出现位置的偏移量"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaNumber",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "弹出层出现位置的偏移量"
+                    }
+                  },
+                  {
+                    "property": "open-delay",
+                    "label": {
+                      "text": {
+                        "zh_CN": "延迟出现的时长"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaNumber",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "延迟出现的时长"
+                    }
+                  },
+                  {
+                    "property": "enterable",
+                    "label": {
+                      "text": {
+                        "zh_CN": "鼠标是否可进入到tooltip的弹出层中"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaNumber",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "鼠标是否可进入到tooltip的弹出层中"
+                    }
+                  },
+                  {
+                    "property": "popper-class",
+                    "label": {
+                      "text": {
+                        "zh_CN": "为Tooltip的弹出层添加类名"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "为Tooltip的弹出层添加类名"
+                    }
+                  },
+                  {
+                    "property": "tabindex",
+                    "label": {
+                      "text": {
+                        "zh_CN": "设置组件的触发原的tabindex"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaNumber",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "设置组件的触发原的tabindex"
+                    }
+                  },
+                  {
+                    "property": "renderContent",
+                    "label": {
+                      "text": {
+                        "zh_CN": "自定义渲染函数,返回需要渲染的节点内容"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaCodeEditor",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "自定义渲染函数,返回需要渲染的节点内容"
+                    }
+                  },
+                  {
+                    "property": "transition",
+                    "label": {
+                      "text": {
+                        "zh_CN": "定义渐变动画的类名"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "定义渐变动画的类名"
+                    }
+                  },
+                  {
+                    "property": "visible",
+                    "label": {
+                      "text": {
+                        "zh_CN": "提示的只能出现的模式；该属性的可选值为auto/always"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaInput",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "定义渐变动画的类名"
+                    }
+                  },
+                  {
+                    "property": "visible-arrow",
+                    "label": {
+                      "text": {
+                        "zh_CN": "是否显示箭头"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "defaultValue": "提示信息",
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSwitch",
+                      "props": {}
+                    },
+                    "description": {
+                      "zh_CN": "是否显示箭头"
+                    }
+                  }
+                ],
+                "description": {
+                  "zh_CN": ""
+                }
               }
             ],
             "events": {},
@@ -11620,6 +14364,14 @@
                 },
                 "description": {
                   "zh_CN": "自定义提示内容"
+                }
+              },
+              "default": {
+                "label": {
+                  "zh_CN": "默认插槽"
+                },
+                "description": {
+                  "zh_CN": "默认插槽"
                 }
               }
             }
@@ -11812,6 +14564,36 @@
                     },
                     "description": {
                       "zh_CN": "触发方式，该属性的可选值为 click / focus / hover / manual，该属性的默认值为 click"
+                    }
+                  },
+                  {
+                    "property": "height",
+                    "label": {
+                      "text": {
+                        "zh_CN": "弹出层高度"
+                      }
+                    },
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "cols": 12,
+                    "widget": {
+                      "component": "MetaSelect",
+                      "props": {
+                        "options": [
+                          {
+                            "label": "auto",
+                            "value": "auto"
+                          },
+                          {
+                            "label": "number",
+                            "value": "number"
+                          }
+                        ]
+                      }
+                    },
+                    "description": {
+                      "zh_CN": "弹出层高度"
                     }
                   },
                   {
@@ -12025,25 +14807,6 @@
                     }
                   },
                   {
-                    "property": "transform-origin",
-                    "label": {
-                      "text": {
-                        "zh_CN": "旋转中心点"
-                      }
-                    },
-                    "required": true,
-                    "readOnly": false,
-                    "disabled": false,
-                    "cols": 12,
-                    "widget": {
-                      "component": "MetaSwitch",
-                      "props": {}
-                    },
-                    "description": {
-                      "zh_CN": "组件的旋转中心点,组件的旋转中心点"
-                    }
-                  },
-                  {
                     "property": "transition",
                     "label": {
                       "text": {
@@ -12107,6 +14870,116 @@
                   "returns": {}
                 },
                 "defaultValue": ""
+              },
+              "onAfter-enter": {
+                "label": {
+                  "zh_CN": "进入的动画播放完毕后触发"
+                },
+                "description": {
+                  "zh_CN": "进入的动画播放完毕后触发"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [
+                    {
+                      "name": "value",
+                      "type": "string",
+                      "defaultValue": "",
+                      "description": {
+                        "zh_CN": ""
+                      }
+                    }
+                  ],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "onAfter-leave": {
+                "label": {
+                  "zh_CN": "离开的动画播放完毕后触发"
+                },
+                "description": {
+                  "zh_CN": "离开的动画播放完毕后触发"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [
+                    {
+                      "name": "value",
+                      "type": "string",
+                      "defaultValue": "",
+                      "description": {
+                        "zh_CN": ""
+                      }
+                    }
+                  ],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "hide": {
+                "label": {
+                  "zh_CN": "隐藏时触发"
+                },
+                "description": {
+                  "zh_CN": "隐藏时触发"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [
+                    {
+                      "name": "value",
+                      "type": "string",
+                      "defaultValue": "",
+                      "description": {
+                        "zh_CN": ""
+                      }
+                    }
+                  ],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              },
+              "show": {
+                "label": {
+                  "zh_CN": "显示时触发"
+                },
+                "description": {
+                  "zh_CN": "显示时触发"
+                },
+                "type": "event",
+                "functionInfo": {
+                  "params": [
+                    {
+                      "name": "value",
+                      "type": "string",
+                      "defaultValue": "",
+                      "description": {
+                        "zh_CN": ""
+                      }
+                    }
+                  ],
+                  "returns": {}
+                },
+                "defaultValue": ""
+              }
+            },
+            "slots": {
+              "default": {
+                "label": {
+                  "zh_CN": "弹出层元素插槽"
+                },
+                "description": {
+                  "zh_CN": "弹出层元素插槽"
+                }
+              },
+              "reference": {
+                "label": {
+                  "zh_CN": "触发源元素插槽，该插槽时必传插槽"
+                },
+                "description": {
+                  "zh_CN": "触发源元素插槽，该插槽时必传插槽"
+                }
               }
             }
           },
@@ -12723,6 +15596,13 @@
                 "props": {
                   "visible": true,
                   "show-close": true,
+                  "close-on-click-modal": true,
+                  "close-on-press-escape": true,
+                  "is-form-reset": true,
+                  "lock-scroll": true,
+                  "modal": true,
+                  "modal-append-to-body": true,
+                  "show-header": true,
                   "title": "dialogBox title"
                 },
                 "children": [
@@ -12843,8 +15723,10 @@
                 "props": {
                   "editConfig": {
                     "trigger": "click",
+                    "height": "auto",
                     "mode": "cell",
-                    "showStatus": true
+                    "showStatus": true,
+                    "auto-load": true
                   },
                   "columns": [
                     {
@@ -12901,6 +15783,16 @@
                 "props": {
                   "modelValue": "",
                   "placeholder": "请选择",
+                  "auto-lookup": true,
+                  "show-clear-btn": true,
+                  "readonly": true,
+                  "draggable": true,
+                  "popseletor": "grid",
+                  "text-field": "label",
+                  "text-split": "/",
+                  "tabindex": "1",
+                  "value-split": ";",
+                  "value-field": "id",
                   "gridOp": {
                     "columns": [
                       {
@@ -13011,7 +15903,10 @@
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "expand-on-click-node": true,
+                  "show-title": true,
+                  "show-filter": true
                 }
               }
             },
@@ -13026,8 +15921,17 @@
                 "componentName": "TinyTooltip",
                 "props": {
                   "content": "Top Left 提示文字",
+                  "close-delay": 300,
+                  "offset": 0,
+                  "open-delay": 0,
+                  "visible": "always",
+                  "effect": "dark",
+                  "transition": "tiny-fade-in-linear",
+                  "enterable": true,
                   "placement": "top-start",
                   "manual": true,
+                  "visible-arrow": true,
+                  "append-to-body": true,
                   "modelValue": true
                 },
                 "children": [
