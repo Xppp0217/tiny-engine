@@ -116,12 +116,12 @@ export default {
         const namedNode = item.name ? item : { ...item, name: item.folderName, group: 'staticPages' }
         const node = item.meta
           ? {
-              ...item,
-              ...item.meta,
-              name: item.fileName,
-              isPage: true,
-              isBody: item.meta.rootElement === ELEMENT_TAG.Body
-            }
+            ...item,
+            ...item.meta,
+            name: item.fileName,
+            isPage: true,
+            isBody: item.meta.rootElement === ELEMENT_TAG.Body
+          }
           : namedNode
 
         const { children, ...other } = node

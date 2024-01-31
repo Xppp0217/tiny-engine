@@ -17,8 +17,8 @@
                   <svg-icon :name="child?.icon?.toLowerCase() || 'row'"></svg-icon>
                 </div>
                 <span class="component-item-name" :title="child.name?.zh_CN || child.name">{{
-                  child.name?.zh_CN || child.name
-                }}</span>
+                    child.name?.zh_CN || child.name
+                  }}</span>
               </li>
             </canvas-drag-item>
           </template>

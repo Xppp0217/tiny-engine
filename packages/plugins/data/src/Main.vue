@@ -23,8 +23,8 @@
       </tiny-search>
       <div class="add-btn">
         <tiny-button @click="openPanel(OPTION_TYPE.ADD)">{{
-          activeName === STATE.CURRENT_STATE ? '添加变量' : '添加全局变量'
-        }}</tiny-button>
+            activeName === STATE.CURRENT_STATE ? '添加变量' : '添加全局变量'
+          }}</tiny-button>
       </div>
       <data-source-list
         :modelValue="Object.keys(state.dataSource)"
@@ -377,7 +377,7 @@ export default {
     .title {
       padding: 10px;
       font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-        'Helvetica Neue', sans-serif;
+      'Helvetica Neue', sans-serif;
       color: var(--ti-lowcode-plugin-panel-title-color);
       font-weight: var(--ti-lowcode-plugin-panel-title-font-weight);
       border-bottom: 1px solid var(--ti-lowcode-data-header-border-bottom-color);

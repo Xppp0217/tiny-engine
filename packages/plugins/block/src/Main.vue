@@ -43,10 +43,10 @@
                     </div>
                     <div class="popper-confirm-footer">
                       <tiny-button class="confirm-btn" size="small" type="primary" @click="delCategory(item.id)"
-                        >确定</tiny-button
+                      >确定</tiny-button
                       >
                       <tiny-button class="cancel-btn" size="small" @click="handleShowDeleteModal(null)"
-                        >取消</tiny-button
+                      >取消</tiny-button
                       >
                     </div>
                   </div>
